@@ -248,11 +248,7 @@ const ReportGenerator = ({ userData, onSuccess, className = "" }: ReportGenerato
   };
 
   const submitFormData = (data) => {
-    axios.post("https://mindpal-api.vercel.app/api/run-workflow", { data }, {
-      headers: {
-        'Access-Control-Allow-Origin': '*'
-      }
-    }
+    axios.post("https://mindpal-api.vercel.app/api/run-workflow", { data }
     ).then((res) => {
       if (res.data) {
         setProgress(30);

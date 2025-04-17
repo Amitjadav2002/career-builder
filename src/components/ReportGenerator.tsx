@@ -248,7 +248,11 @@ const ReportGenerator = ({ userData, onSuccess, className = "" }: ReportGenerato
   };
 
   const submitFormData = (data) => {
-    axios.post("https://mindpal-api.vercel.app/api/run-workflow", { data }
+    axios.post("https://mindpal-api.vercel.app/api/run-workflow", { data }, {
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    }
     ).then((res) => {
       if (res.data) {
         setProgress(30);
@@ -359,7 +363,7 @@ const ReportGenerator = ({ userData, onSuccess, className = "" }: ReportGenerato
             </>
           )}
         </Button>
-      
+
         {retryCount > 0 && !isGenerating && (
           <Button
             onClick={handleRetry}
